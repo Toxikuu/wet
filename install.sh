@@ -10,8 +10,8 @@ if [[ $(readlink -f "$0") != *wet*install.sh ]]; then
 fi
 
 mkdir -pv /tbin
-cp -iv ./wetenv /etc/
-cp -iv ./wet /tbin/
+cp -v ./wetenv /etc/
+cp -v ./wet /tbin/
 
 if [[ -e /tbin/wet && -e /etc/wetenv ]]; then
   echo "Wet has been successfully installed."
