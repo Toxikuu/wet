@@ -19,9 +19,9 @@ else
   echo -e "\x1b[31;1;3mInstallation failed! The fuck you do?\x1b[0m" && exit 1
 fi
 
-echo "pathappend /tbin" >> /etc/profile
-echo -e "\x1b[1;3mYou should execute the following command now:\x1b[0m" 
-echo ". /etc/profile"
-
 popd
 rm -rvf wet
+
+echo "pathappend /tbin" >> /etc/profile
+echo -e "\x1b[1;3mYou should now execute the following command:\x1b[0m" 
+echo ". /etc/profile"

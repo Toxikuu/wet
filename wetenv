@@ -39,7 +39,7 @@ fi
 # Set up some environment variables.
 export HISTSIZE=1000
 export HISTIGNORE="&:[bf]g:exit"
-export MAKEFLAGS="-j16"
+export MAKEFLAGS="-j$(nproc)"
 export LFS="/mnt/lfs"
 
 alias python="python3"

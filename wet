@@ -5,13 +5,12 @@ mkdir -pv /tmp/wet
 wget --content-disposition -P /tmp/wet "$1"
 
 SRCDIR=$(tar tf /tmp/wet/*.tar* | head -n1 | cut -d/ -f1)
-echo "SRCDIR=$SRCDIR"
 tar xvf /tmp/wet/*.tar* -C /tmp/wet
 
 mv -v "/tmp/wet/$SRCDIR" .
 if ls *'?viasf=1' &>/dev/null; then
   for file in *'?viasf=1'; do
-    mv "$file" "${file//\?viasf=1/}"
+    mv "$file" "${file//\?viasf=1/}" # this is necessary for sourceforge tarballs
   done
 fi
 
