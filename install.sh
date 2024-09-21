@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: Instead of cloning the repo, just curl the two necessary files.
+
 if [ $EUID -ne 0 ]; then
   echo "This script must be executed as root."
   exit 1
