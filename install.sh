@@ -6,7 +6,7 @@ if [ $EUID -ne 0 ]; then
 fi
 
 if [[ $(readlink -f "$0") != *wet*install.sh ]]; then
-  git clone https://github.com/toxikuu/wet && cd wet
+  git clone https://github.com/toxikuu/wet && pushd wet
 fi
 
 mkdir -pv /tbin
@@ -23,4 +23,5 @@ echo "pathappend /tbin" >> /etc/profile
 echo -e "\x1b[1;3mYou should execute the following command now:\x1b[0m" 
 echo ". /etc/profile"
 
-echo -e "\x1b[3mThe cloned wet directory may now be removed unless you want to read the README.\x1b[0m\n"
+popd
+rm -rvf wet
