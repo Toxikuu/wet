@@ -4,7 +4,7 @@ rm -rvf /tmp/wet
 mkdir -pv /tmp/wet
 wget --content-disposition -P /tmp/wet "$1"
 
-SRCDIR=$(tar tf /tmp/wet/*.tar* | head -n1 | cut -d/ -f1)
+SRCDIR=$(tar tf /tmp/wet/*.t* | head -n1 | cut -d/ -f1) # not .tar because .t{bz2,gz,xz} exist
 tar xvf /tmp/wet/*.tar* -C /tmp/wet
 
 mv -v "/tmp/wet/$SRCDIR" .
