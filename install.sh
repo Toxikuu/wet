@@ -13,4 +13,13 @@ mkdir -pv /tbin
 cp -iv ./wetenv /etc/
 cp -iv ./wet /tbin/
 
+# I don't think the below command works. I'll fix later.
 pathappend /tbin || echo "Function: 'pathappend' not defined!"
+
+if [ -e /tbin/wet && -e /etc/wetenv ]; then
+  echo "Wet has been successfully installed."
+fi
+
+if [ "$PATH" == *tbin* ]; then
+  echo "/tbin has been successfully added to PATH"
+fi
