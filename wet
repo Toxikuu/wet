@@ -1,0 +1,23 @@
+#!/bin/bash
+
+rm -rvf /tmp/wet
+mkdir -pv /tmp/wet
+wget --content-disposition -P /tmp/wet "$1"
+
+SRCDIR=$(tar tf /tmp/wet/*.tar* | head -n1 | cut -d/ -f1)
+echo "SRCDIR=$SRCDIR"
+tar xvf /tmp/wet/*.tar* -C /tmp/wet
+
+mv -v "/tmp/wet/$SRCDIR" .
+if ls *'?viasf=1' &>/dev/null; then
+  for file in *'?viasf=1'; do
+    mv "$file" "${file//\?viasf=1/}"
+  done
+fi
+
+pushd "$SRCDIR"
+echo -e "\n\x1b[1;3m [\x1b[31m$\x1b[39m] You are now in a wet shell. Type 'x' once you're done.\x1b[0m\n"
+bash --init-file /etc/wetenv
+
+popd
+rm -rvf "$SRCDIR"
