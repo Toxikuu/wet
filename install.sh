@@ -14,10 +14,13 @@ cp -v ./wetenv /etc/
 cp -v ./wet /tbin/
 
 if [[ -e /tbin/wet && -e /etc/wetenv ]]; then
-  echo "Wet has been successfully installed."
+  echo -e "\n\x1b[1;3mWet has been successfully installed.\x1b[0m\n"
 else
-  echo "Installation failed! The fuck you do?" && exit 1
+  echo -e "\x1b[31;1;3mInstallation failed! The fuck you do?\x1b[0m" && exit 1
 fi
 
 echo "pathappend /tbin" >> /etc/profile
-echo "Run . /etc/profile"
+echo -e "\x1b[1;3mYou should execute the following command now:\x1b[0m" 
+echo ". /etc/profile"
+
+echo -e "\x1b[3mThe cloned wet directory may now be removed unless you want to read the README.\x1b[0m\n"
