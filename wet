@@ -5,7 +5,7 @@ mkdir -pv /tmp/wet
 wget --content-disposition -P /tmp/wet "$1"
 
 SRCDIR=$(tar tf /tmp/wet/*.t* | head -n1 | cut -d/ -f1) # not .tar because .t{bz2,gz,xz} exist
-tar xvf /tmp/wet/*.tar* -C /tmp/wet
+tar xvf /tmp/wet/*.t* -C /tmp/wet
 
 mv -v "/tmp/wet/$SRCDIR" .
 if ls *'?viasf=1' &>/dev/null; then
