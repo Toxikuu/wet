@@ -24,6 +24,6 @@ fi
 popd
 rm -rvf wet
 
-echo "pathappend /tbin" >> /etc/profile
+grep "pathappend /tbin" /etc/profile || echo "pathappend /tbin" >> /etc/profile
 echo -e "\x1b[1;3mYou should now execute the following command:\x1b[0m" 
 echo ". /etc/profile"
